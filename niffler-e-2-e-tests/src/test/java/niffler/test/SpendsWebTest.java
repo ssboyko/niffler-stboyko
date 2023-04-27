@@ -34,14 +34,14 @@ public class SpendsWebTest {
 
     @GenerateCategory(
             username = "stepan",
-            category = "qa education"
+            category = "new category"
     )
     @GenerateSpend(
             username = "stepan",
             description = "QA GURU ADVANCED VOL 2",
             currency = CurrencyValues.RUB,
             amount = 52000.00,
-            category = "test"
+            category = "new category"
     )
     @Test
     void spendShouldBeDeletedByActionInTable(SpendJson spend) {

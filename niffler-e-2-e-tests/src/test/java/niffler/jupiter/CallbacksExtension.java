@@ -20,7 +20,10 @@ public class CallbacksExtension implements
 
   @Override
   public void beforeAll(ExtensionContext context) throws Exception {
-    context.getRequiredTestClass();
+    System.out.println("=== This is beforeAll extension ===");
+    //System.out.println("getRequiredTestMethod -> " + context.getRequiredTestMethod()); -> Здесь ещё не работает
+    System.out.println("getRequiredTestClass -> " + context.getRequiredTestClass());
+    //System.out.println("getRequiredTestInstance -> " + context.getRequiredTestInstance()); -> Здесь ещё не работает
     System.out.println("#### BeforeAllCallback!");
   }
 
@@ -31,10 +34,10 @@ public class CallbacksExtension implements
 
   @Override
   public void beforeEach(ExtensionContext context) throws Exception {
-//    context.getRequiredTestMethod(); // context for test
-//    context.getRoot().getRequiredTestMethod();  // context for test run
-//    context.getParent().get().getRequiredTestMethod(); // context for class
-
+    System.out.println("=== This is beforeEach extension ===");
+    System.out.println("getRequiredTestMethod -> " + context.getRequiredTestMethod());
+    System.out.println("getRequiredTestClass -> " + context.getRequiredTestClass());
+    System.out.println("getRequiredTestInstance -> " + context.getRequiredTestInstance());
     System.out.println("  #### BeforeEachCallback!");
   }
 
