@@ -21,13 +21,13 @@ public class SpendsWebTest extends BaseWebTest {
     void doLogin() {
         Selenide.open("http://127.0.0.1:3000/main");
         $("a[href*='redirect']").click();
-        $("input[name='username']").setValue("dima");
-        $("input[name='password']").setValue("12345");
+        $("input[name='username']").setValue("stepan");
+        $("input[name='password']").setValue("123");
         $("button[type='submit']").click();
     }
 
     @GenerateSpend(
-        username = "dima",
+        username = "stepan",
         description = "QA GURU ADVANCED VOL 2",
         currency = CurrencyValues.RUB,
         amount = 52000.00,
@@ -48,6 +48,5 @@ public class SpendsWebTest extends BaseWebTest {
         $(".spendings-table tbody")
             .$$("tr")
             .shouldHave(CollectionCondition.size(0));
-        throw new IllegalStateException();
     }
 }

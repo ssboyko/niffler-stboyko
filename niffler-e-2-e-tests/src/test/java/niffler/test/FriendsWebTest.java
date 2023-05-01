@@ -46,4 +46,33 @@ public class FriendsWebTest extends BaseWebTest {
         .should(Condition.visible);
   }
 
+  @AllureId("103")
+  @Test
+  void friendsShouldBeVisible1(@User(userType = User.UserType.WITH_FRIENDS) UserJson userJson,
+                               @User(userType = User.UserType.INVITATION_RECEIVED) UserJson userJson2,
+                               @User(userType = User.UserType.INVITATION_SENT) UserJson userJson3) {
+    Allure.step("open page", () -> Selenide.open("http://127.0.0.1:3000/main"));
+    System.out.println("userJson is ->  " + userJson.getUsername());
+    System.out.println("userJson2 is ->  " + userJson2.getUsername());
+    System.out.println("userJson3 is ->  " + userJson3.getUsername());
+    $("a[href*='redirect']").click();
+    $("input[name='username']").setValue(userJson.getUsername());
+    $("input[name='password']").setValue(userJson.getPassword());
+    $("button[type='submit']").click();
+
+    $("a[href*='people']").click();
+    $$(".table tbody tr").find(Condition.text("Pending invitation"))
+            .should(Condition.visible);
+  }
+
+  @AllureId("106")
+  @Test
+  void manyUsersShouldBeAvaliable(@User(userType = User.UserType.WITH_FRIENDS) UserJson userJson,
+                               @User(userType = User.UserType.INVITATION_RECEIVED) UserJson userJson2,
+                               @User(userType = User.UserType.INVITATION_SENT) UserJson userJson3) {
+
+    System.out.println("userJson is ->  " + userJson.getUsername());
+    System.out.println("userJson2 is ->  " + userJson2.getUsername());
+    System.out.println("userJson3 is ->  " + userJson3.getUsername());
+      }
 }
