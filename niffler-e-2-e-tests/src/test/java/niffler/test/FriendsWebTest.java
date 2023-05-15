@@ -68,11 +68,17 @@ public class FriendsWebTest extends BaseWebTest {
   @AllureId("106")
   @Test
   void manyUsersShouldBeAvaliable(@User(userType = User.UserType.WITH_FRIENDS) UserJson userJson,
-                               @User(userType = User.UserType.INVITATION_RECEIVED) UserJson userJson2,
-                               @User(userType = User.UserType.INVITATION_SENT) UserJson userJson3) {
+                                  @User(userType = User.UserType.WITH_FRIENDS) UserJson userJson1,
+                                  @User(userType = User.UserType.INVITATION_RECEIVED) UserJson userJson2,
+                                  @User(userType = User.UserType.INVITATION_RECEIVED) UserJson userJson3,
+                                  @User(userType = User.UserType.INVITATION_SENT) UserJson userJson4,
+                                  @User(userType = User.UserType.INVITATION_SENT) UserJson userJson5) {
 
     System.out.println("userJson is ->  " + userJson.getUsername());
+    System.out.println("userJson is ->  " + userJson1.getUsername());
     System.out.println("userJson2 is ->  " + userJson2.getUsername());
     System.out.println("userJson3 is ->  " + userJson3.getUsername());
+    System.out.println("userJson3 is ->  " + userJson4.getUsername());
+    System.out.println("userJson3 is ->  " + userJson5.getUsername());
       }
 }
