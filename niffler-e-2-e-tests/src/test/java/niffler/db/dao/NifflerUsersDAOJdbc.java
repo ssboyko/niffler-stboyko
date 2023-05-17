@@ -73,6 +73,28 @@ public class NifflerUsersDAOJdbc implements NifflerUsersDAO {
   }
 
   @Override
+  public int updateUser(UserEntity user) {
+    int executeUpdate;
+    String updateSql = "UPDATE users SET username = ?, password = ?, enabled = ?, account_non_expired =?," +
+            "account_non_locked =?, credentials_non_expired = ? where username = ?";
+    try (Connection conn = ds.getConnection();
+      PreparedStatement updateUserSt = conn.prepareStatement(updateSql)){
+      updateUserSt.setString(1, user.getUsername());
+      updateUserSt.setString(2, pe.encode(user.getPassword()));
+      updateUserSt.setBoolean(3, user.getEnabled());
+      updateUserSt.setBoolean(4, user.getAccountNonExpired());
+      updateUserSt.setBoolean(5, user.getAccountNonLocked());
+      updateUserSt.setBoolean(6, user.getCredentialsNonExpired());
+      updateUserSt.setString(7, user.getUsername());
+      executeUpdate = updateUserSt.executeUpdate();
+    }
+    catch (SQLException e){
+      throw new RuntimeException();
+    }
+    return executeUpdate;
+  }
+
+  @Override
   public String getUserId(String userName) {
     try (Connection conn = ds.getConnection();
         PreparedStatement st = conn.prepareStatement("SELECT * FROM users WHERE username = ?")) {

@@ -10,6 +10,8 @@ public interface NifflerUsersDAO {
   PasswordEncoder pe = PasswordEncoderFactories.createDelegatingPasswordEncoder();
   int createUser(UserEntity user);
 
+  int updateUser(UserEntity user);
+
   String getUserId(String userName);
 
   int removeUser(UserEntity user);

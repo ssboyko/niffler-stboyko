@@ -13,6 +13,7 @@ import java.util.Arrays;
 import niffler.db.dao.NifflerUsersDAO;
 import niffler.db.dao.NifflerUsersDAOHibernate;
 import niffler.db.dao.NifflerUsersDAOJdbc;
+import niffler.db.dao.NifflerUsersDAOSpringJdbc;
 import niffler.db.entity.Authority;
 import niffler.db.entity.AuthorityEntity;
 import niffler.db.entity.UserEntity;
@@ -37,7 +38,7 @@ public class LoginNewUserTest extends BaseWebTest {
   @BeforeEach
   void createUserForTest() {
     ue = new UserEntity();
-    ue.setUsername("valentin3");
+    ue.setUsername("Stepan12345");
     ue.setPassword(TEST_PWD);
     ue.setEnabled(true);
     ue.setAccountNonExpired(true);
@@ -52,6 +53,8 @@ public class LoginNewUserTest extends BaseWebTest {
         }
     ).toList());
     usersDAO.createUser(ue);
+    ue.setUsername("Stepan54321");
+    usersDAO.updateUser(ue);
   }
 
   @AfterEach

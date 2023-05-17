@@ -1,6 +1,7 @@
 package niffler.jupiter;
 
 import niffler.api.CategoryService;
+import niffler.jupiter.extension.GenerateSpendExtension;
 import niffler.model.CategoryJson;
 import okhttp3.OkHttpClient;
 import org.junit.jupiter.api.extension.*;
