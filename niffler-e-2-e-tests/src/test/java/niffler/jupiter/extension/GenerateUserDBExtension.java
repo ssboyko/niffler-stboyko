@@ -21,7 +21,7 @@ public class GenerateUserDBExtension implements BeforeEachCallback, AfterEachCal
             .create(GenerateUserDBExtension.class);
 
     NifflerUsersDAO usersDAO = new NifflerUsersDAOJdbc();
-    private static Faker faker = new Faker();
+     static Faker faker = new Faker();
 
     @Override
     public void beforeEach(ExtensionContext context) throws Exception {

@@ -53,8 +53,6 @@ public class LoginNewUserTest extends BaseWebTest {
         }
     ).toList());
     usersDAO.createUser(ue);
-    ue.setUsername("Stepan54321");
-    usersDAO.updateUser(ue);
   }
 
   @AfterEach

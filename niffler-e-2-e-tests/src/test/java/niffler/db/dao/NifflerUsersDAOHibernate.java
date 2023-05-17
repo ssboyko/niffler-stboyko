@@ -40,9 +40,4 @@ public class NifflerUsersDAOHibernate extends JpaTransactionManager implements N
     remove(user);
     return 0;
   }
-
-  @Override
-  public int updateUser(UserEntity user) {
-    return 0;
-  }
 }

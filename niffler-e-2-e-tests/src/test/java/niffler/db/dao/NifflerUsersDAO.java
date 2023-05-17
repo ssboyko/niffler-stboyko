@@ -15,9 +15,5 @@ public interface NifflerUsersDAO {
   String getUserId(String userName);
 
   int removeUser(UserEntity user);
-
-  int updateUser(UserEntity user);
-
-
-
+  
 }

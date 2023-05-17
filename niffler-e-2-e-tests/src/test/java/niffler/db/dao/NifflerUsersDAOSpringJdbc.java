@@ -98,8 +98,4 @@ public class NifflerUsersDAOSpringJdbc implements NifflerUsersDAO {
     });
   }
 
-  @Override
-  public int updateUser(UserEntity user) {
-    return 0;
-  }
 }
